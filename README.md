@@ -24,4 +24,4 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 
 ## Deploy on Vercel
-This project is deployed on Vercel. You can view the live site [here](https://hygeia-fe.vercel.app/).
+This project is deployed on Vercel. You can view the live site [here](https://hygeia-iota.vercel.app/).
