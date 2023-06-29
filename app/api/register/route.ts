@@ -11,7 +11,7 @@ export async function POST(requsest: Request) {
     gender: body.Gender,
     age: body.DOB,
   };
-
+  console.log("user -------------->", user);
   const requestOptions = {
     method: "POST",
     headers: {
@@ -21,7 +21,7 @@ export async function POST(requsest: Request) {
   };
 
   await fetch(
-    "https://235c-41-139-168-163.ngrok-free.app/auth/v1/signup",
+    "https://ef02-41-139-168-163.ngrok-free.app/auth/v1/signup",
     requestOptions
   )
     .then((response) => {
@@ -32,9 +32,11 @@ export async function POST(requsest: Request) {
     })
     .then((data) => {
       const returnedUser = data.response[0].details[0].details;
+      console.log("response here ------------------->", returnedUser);
       return NextResponse.json(returnedUser);
     })
     .catch((error) => {
+      console.log("error here ------------------->", error);
       console.error("Error:", error);
     });
 }

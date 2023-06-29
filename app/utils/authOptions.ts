@@ -27,7 +27,7 @@ export const authOptions: NextAuthOptions = {
         };
 
         await fetch(
-          "https://235c-41-139-168-163.ngrok-free.app/auth/v1/signin",
+          "https://ef02-41-139-168-163.ngrok-free.app/auth/v1/signin",
           requestOptions
         )
           .then((response) => {
