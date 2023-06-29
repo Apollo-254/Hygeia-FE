@@ -74,7 +74,7 @@ const people = [
 export default function Example() {
   return (
     <div className=" px-8 mt-8  mx-8  lg:py-0">
-      <div className=" bg-white rounded-lg  ">
+      <div className="bg-white rounded-lg  ">
         <div className="p-6 space-y-8  ">
           <ul role="list" className="divide-y divide-blue-100">
             {people.map((person) => (
