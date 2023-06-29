@@ -1,6 +1,7 @@
+import { UserCircleIcon } from "@heroicons/react/24/outline";
 const people = [
   {
-    name: "Leslie Alexander",
+    name: "Appointment 1",
     email: "leslie.alexander@example.com",
     role: "Co-Founder / CEO",
     imageUrl:
@@ -9,7 +10,7 @@ const people = [
     lastSeenDateTime: "2023-01-23T13:23Z",
   },
   {
-    name: "Michael Foster",
+    name: "Appointment 2",
     email: "michael.foster@example.com",
     role: "Co-Founder / CTO",
     imageUrl:
@@ -18,7 +19,7 @@ const people = [
     lastSeenDateTime: "2023-01-23T13:23Z",
   },
   {
-    name: "Dries Vincent",
+    name: "Appointment 3",
     email: "dries.vincent@example.com",
     role: "Business Relations",
     imageUrl:
@@ -26,7 +27,7 @@ const people = [
     lastSeen: null,
   },
   {
-    name: "Lindsay Walton",
+    name: "Appointment 4",
     email: "lindsay.walton@example.com",
     role: "Front-end Developer",
     imageUrl:
@@ -35,7 +36,7 @@ const people = [
     lastSeenDateTime: "2023-01-23T13:23Z",
   },
   {
-    name: "Courtney Henry",
+    name: "Appointment 5",
     email: "courtney.henry@example.com",
     role: "Designer",
     imageUrl:
@@ -44,7 +45,24 @@ const people = [
     lastSeenDateTime: "2023-01-23T13:23Z",
   },
   {
-    name: "Tom Cook",
+    name: "Appointment 6",
+    email: "tom.cook@example.com",
+    role: "Director of Product",
+    imageUrl:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    lastSeen: null,
+  },
+  {
+    name: "Appointment 7",
+    email: "courtney.henry@example.com",
+    role: "Designer",
+    imageUrl:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    lastSeen: "3h ago",
+    lastSeenDateTime: "2023-01-23T13:23Z",
+  },
+  {
+    name: "Appointment 8",
     email: "tom.cook@example.com",
     role: "Director of Product",
     imageUrl:
@@ -55,46 +73,38 @@ const people = [
 
 export default function Example() {
   return (
-    <div className="mt-3">
-      <ul role="list" className="divide-y divide-yellow-800">
-        {people.map((person) => (
-          <li key={person.email} className="flex justify-between gap-x-6 py-5">
-            <div className="flex gap-x-4">
-              <img
-                className="h-12 w-12 flex-none rounded-full bg-gray-50"
-                src={person.imageUrl}
-                alt=""
-              />
-              <div className="min-w-0 flex-auto">
-                <p className="text-sm font-semibold leading-6 text-gray-900">
-                  {person.name}
-                </p>
-                <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-                  {person.email}
-                </p>
-              </div>
-            </div>
-            <div className="hidden sm:flex sm:flex-col sm:items-end">
-              <p className="text-sm leading-6 text-gray-900">{person.role}</p>
-              {person.lastSeen ? (
-                <p className="mt-1 text-xs leading-5 text-gray-500">
-                  Last seen{" "}
-                  <time dateTime={person.lastSeenDateTime}>
-                    {person.lastSeen}
-                  </time>
-                </p>
-              ) : (
-                <div className="mt-1 flex items-center gap-x-1.5">
-                  <div className="flex-none rounded-full bg-emerald-500/20 p-1">
-                    <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+    <div className=" px-8 mt-8  mx-8  lg:py-0">
+      <div className=" bg-white rounded-lg  ">
+        <div className="p-6 space-y-8  ">
+          <ul role="list" className="divide-y divide-blue-100">
+            {people.map((person) => (
+              <li
+                key={person.email}
+                className="flex justify-center gap-x-6 py-5"
+              >
+                <div className="flex gap-x-4">
+
+                <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                    <UserCircleIcon
+                      className="h-6 w-6 text-red-600"
+                      aria-hidden="true"
+                    />
                   </div>
-                  <p className="text-xs leading-5 text-gray-500">Online</p>
+                  <div className="">
+                    <p className="text-sm font-semibold leading-6 text-gray-900">
+                      {person.name}
+                    </p>
+                    <p className="mt-1 text-start text-xs leading-6 text-gray-500">
+                      {person.email}
+                    </p>
+                  </div>
                 </div>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
+           
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
