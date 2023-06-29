@@ -9,7 +9,6 @@ export const RegisterForm = () => {
   const [loading, setLoading] = useState(false);
   const [formValues, setFormValues] = useState({
     fullName: "",
-    email: "",
     password: "",
     Mobile: "",
     Gender: "",
@@ -20,19 +19,22 @@ export const RegisterForm = () => {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    console.log("from form--------------------->", formValues);
     try {
-      axios.post("/api/register", formValues).then(() => {
-        setFormValues({
-          fullName: "",
-          email: "",
-          password: "",
-          Mobile: "",
-          Gender: "",
-          DOB: "",
+      axios
+        .post("/api/register", formValues)
+        .then(() => {
+          setFormValues({
+            fullName: "",
+            password: "",
+            Mobile: "",
+            Gender: "",
+            DOB: "",
+          });
+          router.push("/");
+        })
+        .then(() => {
+          throw new Error("Invalid credentials");
         });
-        router.push("/");
-      });
       setLoading(false);
     } catch (error: any) {
       setLoading(false);
@@ -65,7 +67,7 @@ export const RegisterForm = () => {
             value={formValues.fullName}
             onChange={handleChange}
             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="name@company.com"
+            placeholder="name"
             required
           />
         </div>
@@ -83,7 +85,7 @@ export const RegisterForm = () => {
             value={formValues.Mobile}
             onChange={handleChange}
             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="name@company.com"
+            placeholder="mobile"
             required
           />
         </div>
@@ -101,7 +103,7 @@ export const RegisterForm = () => {
             value={formValues.Gender}
             onChange={handleChange}
             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="name@company.com"
+            placeholder="input your gender"
             required
           />
         </div>
@@ -110,16 +112,16 @@ export const RegisterForm = () => {
             htmlFor="DOB"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-            DOB
+            Age
           </label>
           <input
-            type="DOB"
+            type="number"
             name="DOB"
             id="DOB"
             value={formValues.DOB}
             onChange={handleChange}
             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="name@company.com"
+            placeholder="age"
             required
           />
         </div>
@@ -147,15 +149,6 @@ export const RegisterForm = () => {
         >
           Create an account
         </button>
-        <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-          Already have an account?{" "}
-          <a
-            href="#"
-            className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-          >
-            Login here
-          </a>
-        </p>
       </form>
     </>
   );
