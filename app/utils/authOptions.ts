@@ -13,6 +13,7 @@ export const authOptions: NextAuthOptions = {
         if (!credentials?.email || !credentials?.password) {
           throw new Error("Invalid credentials");
         }
+
         return {
           id: "i",
           email: credentials?.email,

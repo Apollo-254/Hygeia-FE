@@ -20,6 +20,7 @@ export const RegisterForm = () => {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    console.log("from form--------------------->", formValues);
     try {
       axios.post("/api/register", formValues).then(() => {
         setFormValues({

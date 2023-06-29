@@ -3,7 +3,7 @@ import NavBar from "@/app/components/NavBar";
 import { useSession } from "next-auth/react";
 
 export default function Home() {
-  const { data: session } = useSession({ required: true });
+  const { data: session } = useSession();
   return (
     <>
       <NavBar />
